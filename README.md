@@ -1,2 +1,4 @@
 # AnimationTest
-JavaScript animation test
+
+JavaScriptでSVGイメージをアニメーションさせるWebページのテストです。
+This is a WebPage where i test Javascript Animation
