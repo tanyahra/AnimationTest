@@ -6,11 +6,14 @@
     <link rel="stylesheet" href="css/sliderStyle.css" type="text/css" media="all" />
 </head>
 <body>
+    <svg id="svgRoot" width="600" height="600" viewBox="0,0,600,600"></svg>
     <input type="button" id="playButton" onclick="button_click(this);" value="Play"/><br />
     current:<input type="text" id="textblock_current" value="0" readonly/><br />
     <input id="rangeControl" type="range" min="0" max="5000" value="0"
            oninput="slider_changed(this.value)" onchange="slider_changed(this.value)"
            onmousedown="slider_onMouseDown()" onmouseup="slider_onMouseUp()"/><br />
+    <script type="text/javascript" src=svgObjectClasses.js></script>
+           <script type="text/javascript" src="drawSvg.js"></script>
     <script type="text/javascript" src="script1.js"></script>
 </body>
 </html>

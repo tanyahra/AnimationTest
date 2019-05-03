@@ -6,14 +6,15 @@ var lastCalledTime = null;
 function step(timestamp) {
     if (!running || current >= 5000) { return; }
     var diff = timestamp - lastCalledTime;
-    console.log(diff);
-    console.log(current)
-    current = Math.min(5000, current + diff);
-    if (textblock_current != undefined) {
-        textblock_current.value = current;
-        rangeControl.value = current;
+    if (diff > 10) {
+        current = Math.min(5000, current + diff);
+        if (textblock_current != undefined) {
+            textblock_current.value = current;
+            rangeControl.value = current;
+        }
+        updatePath(current);
+        lastCalledTime = timestamp;
     }
-    lastCalledTime = timestamp;
     window.requestAnimationFrame(step);
 }
 function runAnimation() {
@@ -34,6 +35,7 @@ function button_click(playButton) {
 function slider_changed(sliderValue) {
     current = parseInt(sliderValue);
     textblock_current.value = current;
+    updatePath(current);
 }
 function slider_onMouseDown() {
     preDrag_Running = running;
